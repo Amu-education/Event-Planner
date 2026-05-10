@@ -1,6 +1,9 @@
 import { Event, Guest, EventManager } from "./events.js";
 import { Validation } from "./validation.js";
 import { Weather } from "./api.js";
+import "../css/bootstrap.css";
+import "../css/styles.css";
+import "./bootstrap.bundle.js";
 
 
 

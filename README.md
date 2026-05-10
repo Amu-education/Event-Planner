@@ -39,3 +39,5 @@ How to Run Locally
 How Offline Support Works
 
 The application supports offline use. This is done by using a service worker which caches the apps files such as the HTML, CSS and the JS on first visit of the application. Then the service worker will serve the files and allow for normal functioning of the application and the data of the application is stored locally on the users browser using localStorage. The only feature that requires internet connection is weather data which is fetched using an API. The weather display will show "Unable to fetch weather data" when there is no internet connection. 
+
+GitHub Repository Link: https://github.com/Amu-education/Event-Planner
