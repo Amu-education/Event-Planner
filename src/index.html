@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Planner</title>
+
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet" >
+</head>
+<body>
+    <header class="d-flex align-items-center p-3 mb-4 border-bottom">
+        <div class="flex-grow-1">
+            <h1 class="mb-0 fw-bold" id="title">Event Planner</h1>
+        </div>
+        <div id="date-today" class="text-center flex-grow-1">
+            <p id="date-now">Today</p>
+            <div id="current-weather" class="mb-3">Getting weather...</div>
+        </div>
+        <div class="flex-grow-1 text-end">
+            <button data-bs-toggle="modal" data-bs-target="#event-form" id="add-event-btn" class="btn btn-light fw-semibold">Add Event</button>
+        </div>
+    </header>
+
+<div class="px-3 pt-3">
+<ul class="nav nav-pills gap-1">
+  <li class="nav-item">
+    <a class="nav-link active" data-bs-toggle="pill" href="#home">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="pill" href="#events">Events</a>
+  </li>
+</ul>
+</div>
+
+<div class="tab-content">
+  <div id="home" class="tab-pane fade show active">
+  <div class="home-layout">
+    <div class="home-left">
+      <p class="section-label">Overview</p>
+
+        <div class="stat-card">
+          <p class="stat-label">Total Events</p>
+            <h5 id="total-events" class="stat-value">0</h5>
+        </div>
+      <div class="stat-card">
+          <p class="stat-label">Total Guests</p>
+          <h5 id="total-guests" class="stat-value">0</h5>
+        </div>
+      <div class="stat-card">
+        <p class="stat-label">Upcoming Event</p>
+        <h5 id="upcoming-event-title" class="stat-value"></h5>
+        <p id="upcoming-event-time" class="stat-sub"></p>
+      </div>
+    </div>
+        <div class="home-right">
+          <p class="section-label">Upcoming Events</p>
+          <div id="event-list" class="no-event-text"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="events" class="tab-pane fade">
+    <h3 class="section-label-event">Events</h3>
+    <div id="events-grid" class="events-grid px-4 py-3">
+      <p class="no-event-text text-muted">No events yet. Click "Add Event" to create one.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2024 Event Planner. All rights reserved.</p>
+</footer>
+</div>
+
+
+
+
+<div id="event-form" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Create Event</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="make-an-event">
+              <div class="mb-3">
+                <label for="event-type" class="form-label">Event Type</label>
+                <select class="form-select" id="event-type" required>
+                    <option value="" disabled selected>Select event type</option>
+                    <option value="Community Gathering">Community Gathering</option>
+                    <option value="Workshop">Workshop</option>
+                    <option value="Corporate Function">Corporate Function</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="event-name" class="form-label">Event Name</label>
+                <input type="text" class="form-control" id="event-name" placeholder="Enter event name" required>
+            </div>
+            <div class="mb-3">
+                <label for="event-date" class="form-label">Event Date</label>
+                <input type="date" class="form-control" id="event-date" required>
+            </div>
+            <div class="mb-3">
+                <label for="event-time" class="form-label">Event Time</label>
+                <input type="time" class="form-control" id="event-time" required>
+            </div>
+            <div class="mb-3">
+                <label for="event-location" class="form-label">Location</label>
+                <input type="text" class="form-control" id="event-location" placeholder="Enter location" required>
+
+            </div>
+        <div class="modal-footer">
+          <div id="event-error" class="text-danger me-auto"></div>
+          <input type="hidden" id="edit-event-id">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Confirm</button>
+        </div>
+      </form>
+      </div>
+
+  
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="guest-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="guest-modal-title">Manage Guests</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <div id="modal-guest-error" class="text-danger mb-2"></div>
+        <div class="d-flex gap-2 mb-3">
+          <input type="text" id="modal-guest-name" class="form-control" placeholder="Guest name" />
+          <input type="email" id="modal-guest-email" class="form-control" placeholder="Email" />
+          <button class="btn btn-primary" id="modal-add-guest-btn">Add</button>
+        </div>
+        <ul id="modal-guest-list" class="list-group"></ul>
+      </div>
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+<script src="./js/bootstrap.bundle.js"></script>
+<script type="module" src="./js/main.js"></script>
+
+</body>
+</html>
