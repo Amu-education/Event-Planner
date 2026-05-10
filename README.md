@@ -20,11 +20,10 @@ Libraries used
 - Bootstrap used for styling 
 
 
-API used
+API used:
 
-Open-Meteo - it is a free forecast API. no API key needed to run it in your app, the API uses the user's coordinates and the days date to give the weather forecast for the day
-
-Geolocation API - this is a browser based API used to obtain the user's coordinates and is given to the Open-Meteo API
+1. Open-Meteo - it is a free forecast API. no API key needed to run it in your app, the API uses the user's coordinates and the days date to give the weather forecast for the day
+2. Geolocation API - this is a browser based API used to obtain the user's coordinates and is given to the Open-Meteo API
 
 How to Run Locally
 
@@ -40,7 +39,3 @@ How to Run Locally
 How Offline Support Works
 
 The application supports offline use. This is done by using a service worker which caches the apps files such as the HTML, CSS and the JS on first visit of the application. Then the service worker will serve the files and allow for normal functioning of the application and the data of the application is stored locally on the users browser using localStorage. The only feature that requires internet connection is weather data which is fetched using an API. The weather display will show "Unable to fetch weather data" when there is no internet connection. 
-
-
-GitHub Link: 
-
